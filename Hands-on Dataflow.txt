@@ -1,5 +1,0 @@
-Day 2
-
-- Formula for Date_Parsed column:
-  Date.FromText([Date_of_Journey], "en-GB")
-

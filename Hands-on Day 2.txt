@@ -1,0 +1,12 @@
+For Dataflow
+
+- Formula for Date_Parsed column:
+  Date.FromText([Date_of_Journey], "en-GB")
+
+For Pipeline
+
+- Query for Copy data 1
+  SELECT period_last_arrival, area_code_last_arrival, train_class, train_local, passenger, amount FROM dashboard_ticketing.aggregate_system WHERE period_last_arrival BETWEEN DATE'2024-11-01' and DATE'2024-11-31';
+- Query for Copy data 2
+  SELECT period_last_arrival, area_code_last_arrival, area_code_arrival, train_class, train_local, passenger, amount FROM dashboard_ticketing.aggregate_program WHERE period_last_arrival BETWEEN DATE'2024-11-01' and DATE'2024-11-31';
+

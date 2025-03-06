@@ -1,0 +1,17 @@
+Formula for Kategori column :
+if Date.From([period_last_arrival]) >= #date(2024,1,1) and Date.From([period_last_arrival]) <= #date(2024,6,30) then "Program SM I 2024"
+else if Date.From([period_last_arrival]) >= #date(2024,7,1) and Date.From([period_last_arrival]) <= #date(2024,12,31) then "Program SM II 2024"
+else "Other 2024"
+
+Formula for Kelas column :
+if [train_class] = "EKO" and [train_local] = 0 then "Ekonomi"
+else if [train_class] = "BIS" and [train_local] = 0 then "Bisnis"
+else if [train_class] = "EKS" and [train_local] = 0 then "Eksekutif"
+else if [train_class] = "EKO" and [train_local] = 1 then "Lokal Ekonomi"
+else if [train_class] = "BIS" and [train_local] = 1 then "Lokal Bisnis"
+else if [train_class] = "EKS" and [train_local] = 1 then "Lokal Eksekutif"
+else null
+
+Formula for Wilayah column :
+Text.Upper([area_code_last_arrival])
+

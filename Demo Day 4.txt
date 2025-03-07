@@ -10,6 +10,12 @@ else if [train_class] = "EKS" and [train_local] = 0 then "Eksekutif"
 else if [train_class] = "EKO" and [train_local] = 1 then "Lokal Ekonomi"
 else if [train_class] = "BIS" and [train_local] = 1 then "Lokal Bisnis"
 else if [train_class] = "EKS" and [train_local] = 1 then "Lokal Eksekutif"
+else if [train_class] = "LOK EKO"
+then "Lokal Ekonomi"
+else if [train_class] = "LOK EKS"
+then "Lokal Eksekutif"
+else if [train_class] = "LOK BIS"
+then "Lokal Bisnis"
 else null
 
 Formula for Wilayah column :

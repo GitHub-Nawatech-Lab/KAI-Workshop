@@ -15,6 +15,10 @@ ADDCOLUMNS(
     "Formatted-Date", FORMAT([Date], "DD-MMM-YYYY")
 )
 
+# kode table untuk penampunga Calculations
+
+Calculations = ROW("row","")
+
 
 # Kode 2
 

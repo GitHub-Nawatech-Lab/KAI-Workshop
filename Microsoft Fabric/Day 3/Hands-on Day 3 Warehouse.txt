@@ -1,0 +1,33 @@
+-- View table
+SELECT * FROM bookings;
+
+-- Aggregate measures
+SELECT payments.payment_method, bookings.payment_status, SUM(payments.amount) AS TotalAmount
+FROM payments
+JOIN bookings
+ON payments.booking_id = bookings.booking_id
+GROUP BY payments.payment_method, bookings.payment_status
+ORDER BY payments.payment_method, bookings.payment_status;
+
+-- Extend measures
+SELECT passengers.nationality, payments.payment_method, SUM(payments.amount) AS TotalAmount
+FROM payments
+JOIN bookings
+ON payments.booking_id = bookings.booking_id
+JOIN passengers
+ON passengers.passenger_id = bookings.passenger_id
+GROUP BY passengers.nationality, payments.payment_method
+ORDER BY passengers.nationality, payments.payment_method;
+
+-- Ranking functions
+SELECT Airline, Source, Destination, Price,
+ROW_NUMBER() OVER
+(PARTITION BY Airline ORDER BY Price DESC) AS RowNumber,
+RANK() OVER
+(PARTITION BY Airline ORDER BY Price DESC) AS Rank,
+DENSE_RANK() OVER
+(PARTITION BY Airline ORDER BY Price DESC) AS DenseRank,
+NTILE(4) OVER
+(PARTITION BY Airline ORDER BY Price DESC) AS Quartile
+FROM flights
+ORDER BY Airline;

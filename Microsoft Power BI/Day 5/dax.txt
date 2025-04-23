@@ -1,0 +1,41 @@
+
+
+# Kode 1
+
+DateTable = 
+ADDCOLUMNS(
+    CALENDAR(DATE(2015, 1, 1), DATE(2030, 12, 31)),  -- Set start and end dates
+    "Year", YEAR([Date]),
+    "Month", FORMAT([Date], "MMMM"),  -- Full month name (e.g., January)
+    "Month Number", MONTH([Date]), 
+    "Quarter", "Q" & FORMAT([Date], "Q"), 
+    "Weekday", FORMAT([Date], "dddd"),  -- Full weekday name (e.g., Monday)
+    "Weekday Number", WEEKDAY([Date], 2),  -- 2 = Monday as start of week
+    "Year-Month", FORMAT([Date], "YYYY-MM"), -- Useful for sorting
+    "Formatted-Date", FORMAT([Date], "DD-MMM-YYYY")
+)
+
+
+# Kode 2
+
+count_booking = COUNT(bookings[booking_id])
+
+# Kode 3
+
+count_flight = COUNT(flights[Id])
+
+# Kode 4
+
+count_booking_prev_month = CALCULATE(COUNT(bookings[booking_id]), PREVIOUSMONTH(DateTable[Date]), USERELATIONSHIP(bookings[booking_date], DateTable[Date]))
+
+# Kode 5
+
+count_flights_prev_month = CALCULATE(COUNT(flights[Id]), PREVIOUSMONTH(DateTable[Date]))
+
+# Kode 6
+
+growth_booking = DIVIDE([count_booking] - [count_booking_prev_month], [count_booking_prev_month])
+
+# Kode 7
+
+growth_flights = DIVIDE([count_flight] - [count_flights_prev_month], [count_flights_prev_month])

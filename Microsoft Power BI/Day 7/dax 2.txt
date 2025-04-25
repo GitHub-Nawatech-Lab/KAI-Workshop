@@ -1,0 +1,35 @@
+# 1
+
+Semester = ​
+"Semester " & ​
+IF(​
+    MONTH([Date]) <= 6,​
+    "1",​
+    "2"​
+)
+
+
+# 2
+
+volume_penumpang = SUM(aggregate_system_raw[passenger])
+
+
+# 3
+
+program_penumpang = SUM(aggregate_posko_raw[passenger])
+
+# 4
+
+ketercapaian = DIVIDE(volume_penumpang, program_penumpang, 0)
+
+# 5
+
+tidak_tercapai = 1 - ketercapaian
+
+# 6
+
+volume_penumpang_prev_month = CALCULATE(SUM(aggregate_system_raw[passenger]), PREVIOUSMONTH(DateTable[Date]))
+
+# 7 
+
+growth_penumpang = (volume_penumpang - volume_penumpang_prev_month) / volume_penumpang_prev_month

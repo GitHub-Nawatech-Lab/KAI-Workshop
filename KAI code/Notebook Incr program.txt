@@ -1,0 +1,3 @@
+%%sql
+
+DELETE FROM dashboard_ticketing_aggregate_program WHERE period_first_depart >= DATE((now()+interval '7 hours')-interval '8 days')

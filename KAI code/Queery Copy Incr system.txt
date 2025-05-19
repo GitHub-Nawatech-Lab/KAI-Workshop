@@ -1,0 +1,2 @@
+Queery Copy Incr system :
+SELECT * FROM dashboard_ticketing.aggregate_system WHERE id is not null and period_first_depart >= DATE((now()+interval '7 hours')-interval '8 days') and not (passenger = 0 and amount = 0) and company in (0,2)

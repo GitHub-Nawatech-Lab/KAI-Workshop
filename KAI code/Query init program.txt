@@ -1,0 +1,1 @@
+SELECT * FROM dashboard_ticketing.aggregate_program WHERE period_first_depart >= '2024-01-01';
